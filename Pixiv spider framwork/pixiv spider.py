@@ -18,7 +18,7 @@ cookies.save(ignore_discard=True, ignore_expires=True)
 
 
 
-##Open your mared user page and find all user id
+##Open your marked user page and find all user id
 openMarkpage = opener.open(markeduserurl)
 markpage=openMarkpage.read()
 users=re.findall('member\.php\?id=(\d+)', markpage)
