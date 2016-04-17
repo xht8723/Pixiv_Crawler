@@ -3,9 +3,14 @@ import cookielib
 import urllib
 import re
 
+
+
 pixivurl = 'http://www.pixiv.net/'
 posturl = 'https://www.pixiv.net/login.php'
 markeduserurl = 'http://www.pixiv.net/bookmark.php?type=user'
+
+
+
 
 ##Creat cookie for login.
 postdata = urllib.urlencode({'mode':'login', 'pixiv_id':'********','pass':'********','skip':'1'}) ## Your pixiv id and password.
@@ -14,6 +19,7 @@ handler = urllib2.HTTPCookieProcessor(cookies)
 opener = urllib2.build_opener(handler)
 response = opener.open(posturl,postdata)
 cookies.save(ignore_discard=True, ignore_expires=True)
+
 
 
 
@@ -50,12 +56,18 @@ for everyuser in users:
 Marked_users_illust_id.close()
 
 
+
+
+
 ##create a list of image id
 Marked_users_illust_id = open('illust_id.txt','r')
 illusts=Marked_users_illust_id.read()
 illustlist=illusts.split(',')
 Marked_users_illust_id.close()
 illustlist.pop()
+
+
+
 
 
 ##start downloading
