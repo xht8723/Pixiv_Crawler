@@ -68,7 +68,7 @@ Marked_users_illust_id = open('illust_id.txt','r')
 illusts=Marked_users_illust_id.read()
 illustlist=illusts.split(',')
 Marked_users_illust_id.close()
-illustlist.pop()
+illustlist.pop()     #To delete the last index which is a space ' '
 
 
 
