@@ -6,8 +6,10 @@
 
 2016-04-17 script completed.
 
-
-           Porblems encountered:
+           Problems encountered:
                       Lethally, pixiv.net protects its image being visited from outside. you can only access the image source link thru pixiv.net
-                      
-                      
+
+2016-04-20 Header added. Fixed the problem that pixiv preventing outside visit.
+
+           Problems encountered:
+                      The downloaded picture is broken for some reason. Suspecting encoding problem.
