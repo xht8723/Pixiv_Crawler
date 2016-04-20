@@ -20,3 +20,10 @@
                       1. This one is only for my personal use.
                       2. Only the first page work of your followed artist will be downloaded.
                       3. Bad style :P
+
+
+2016-04-20 Fixed the no.2 problem in the update above. Now all images of all pages will be downloaded.
+
+           Things remain:
+                      1. Personal use still
+                      3. super bad style now qq.
