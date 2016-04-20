@@ -2,16 +2,18 @@ import urllib2
 import cookielib
 import urllib
 import re
+import sys
 
 pixivurl = 'http://www.pixiv.net/'
 posturl = 'https://www.pixiv.net/login.php'
-markeduserurl = 'http://www.pixiv.net/bookmark.php?type=user'
-
+markeduserurl = 'http://www.pixiv.net/bookmark.php?type=user&rest=show&p='
+userpageurl = 'http://www.pixiv.net/member_illust.php?id='
 
 
 
 ##Creat cookie for login.
-postdata = urllib.urlencode({'mode':'login', 'pixiv_id':'******','pass':'*******','skip':'1'}) ## Your pixiv id and password.
+print 'Creating cookie...'
+postdata = urllib.urlencode({'mode':'login', 'pixiv_id':'wawa8723','pass':'Chenyiming504','skip':'1'}) ## Your pixiv id and password.
 cookies = cookielib.MozillaCookieJar('cookie.84')
 handler = urllib2.HTTPCookieProcessor(cookies)
 opener = urllib2.build_opener(handler)
@@ -24,15 +26,43 @@ cookies.save(ignore_discard=True, ignore_expires=True)
 
 
 ##Open your mared user page and find all user id
-openMarkpage = opener.open(markeduserurl)
+print 'Counting marked user page number...'
+openMarkpage = opener.open(markeduserurl+'1')
 markpage = openMarkpage.read()
-users = re.findall('member\.php\?id=(\d+)', markpage)
-marked_user_log = open('Marked_users.txt','w')
+pages = re.findall('bookmark\.php\?type=user&amp;rest=show&amp;p=(\d+)',markpage)
+pagenum = []
+
+for everypage in pages:
+	if everypage not in pagenum:
+		pagenum.append(everypage)
+Maxpagenum = pagenum[len(pagenum)-1]
+
+while(True):
+	pagelen = len(pagenum)
+	openMarkpage = opener.open(markeduserurl+Maxpagenum)
+	markpage = openMarkpage.read()
+	pages = pages = re.findall('bookmark\.php\?type=user&amp;rest=show&amp;p=(\d+)',markpage)
+	
+	for everypage in pages:
+		if everypage not in pagenum:
+			pagenum.append(everypage)
+	
+	Maxpagenum = pagenum[len(pagenum)-1]
+
+	if pagelen == len(pagenum):
+		break
+
+print 'Creating marked user log...'
 duplicate_check = []
-for everyuser in users:
-	if everyuser not in duplicate_check:
-		marked_user_log.write(everyuser+',')
-		duplicate_check.append(everyuser)
+for everypage in pagenum:
+	openMarkpage = opener.open(markeduserurl+everypage)
+	markpage = openMarkpage.read()
+	users = re.findall('member\.php\?id=(\d+)', markpage)
+	marked_user_log = open('Marked_users.txt','w')
+	for everyuser in users:
+		if everyuser not in duplicate_check:
+			marked_user_log.write(everyuser+',')
+			duplicate_check.append(everyuser)
 marked_user_log.close()
 
 
@@ -41,21 +71,40 @@ marked_user_log.close()
 
 
 
+##Create userslist
+Marked_users = open('Marked_users.txt','r')
+userslist = Marked_users.read().split(',')
+Marked_users.close()
+userslist.pop()
+
+
+
+
+
 
 ##Record all image id needs to download
+print 'Creating illust id log...'
 Marked_users_illust_id=open('illust_id.txt','w')
-for everyuser in users:
-	userpageurl = 'http://www.pixiv.net/member_illust.php?id=' + everyuser
-	openuserpage = opener.open(userpageurl)
+for everyuser in userslist:
+	openuserpage = opener.open(userpageurl+everyuser)
 	userpage = openuserpage.read()
-	illustid = re.findall('/member_illust\.php\?mode=medium&amp;illust_id=(\d+)',userpage)
-	duplicate_check = []
-	for everyillust in illustid:
-		if everyillust not in duplicate_check:
-			Marked_users_illust_id.write(everyillust+',')
-			duplicate_check.append(everyillust)
-Marked_users_illust_id.close()
+	pages = re.findall('\?id=\d+&amp;type=all&amp;p=(\d+)',userpage)
+	pagenum = []
+	for everypage in pages:
+		if everypage not in pagenum:
+			pagenum.append(everypage)
 
+	for everypage in pagenum:
+		temppage = 'http://www.pixiv.net/member_illust.php?id='+everyuser+'&type=all&p='+everypage 
+		openuserpage = opener.open(temppage)
+		userpage = openuserpage.read()
+		illustid = re.findall('/member_illust\.php\?mode=medium&amp;illust_id=(\d+)',userpage)
+		duplicate_check = []
+		for everyillust in illustid:
+			if everyillust not in duplicate_check:
+				Marked_users_illust_id.write(everyillust+',')
+				duplicate_check.append(everyillust)
+Marked_users_illust_id.close()
 
 
 
@@ -76,9 +125,8 @@ illustlist.pop()
 
 
 
-
-
 ##start downloading
+print 'Downloading...'
 for everyid in illustlist:
 	illusturl='http://www.pixiv.net/member_illust.php?mode=medium&illust_id='+everyid
 	request = urllib2.Request(illusturl)
@@ -110,7 +158,7 @@ for everyid in illustlist:
 	req = urllib2.Request(imageurl[0],None,data)
 	finalopen = opener.open(req)
 	filename = 'id_'+everyid+'.png'
-	f = open(filename,'wb')
+	f = open('.\illusts'+filename,'wb')
 	f.write(finalopen.read())
 	f.close()
 
