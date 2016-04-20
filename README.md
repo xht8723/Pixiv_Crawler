@@ -1,12 +1,9 @@
 # Pixiv_Crawler
 This is a script to download all images of the illustrators you followed on pixiv.net
 
-pixiv.net prevents outside request to visit source url of images..
+The downloaded picture is broken for some reason. still figuring it out.
 
-I have no idea how to deal with it now.
-
-Tho you can still grab all the image id through this.
-
+However you can still use this to grab pictures' and users' id.
 
 
 _________________________________________________________________________________________
@@ -17,8 +14,6 @@ ________________________________________________________________________________
 
 拿来爬你fo的P站画师的图的脚本。
 
-P站阻止了图片源地址的外部访问（403 forbidden）
+不知为何下载下来的图片是损坏的。
 
-我也不知道该怎么搞了...
-
-不过你还是可以成功爬到图片的ID
+不过你还是可以获取画师ID和图片ID。
