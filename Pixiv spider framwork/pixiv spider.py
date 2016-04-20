@@ -13,7 +13,7 @@ userpageurl = 'http://www.pixiv.net/member_illust.php?id='
 
 ##Creat cookie for login.
 print 'Creating cookie...'
-postdata = urllib.urlencode({'mode':'login', 'pixiv_id':'wawa8723','pass':'Chenyiming504','skip':'1'}) ## Your pixiv id and password.
+postdata = urllib.urlencode({'mode':'login', 'pixiv_id':'*********','pass':'********','skip':'1'}) ## Your pixiv id and password.
 cookies = cookielib.MozillaCookieJar('cookie.84')
 handler = urllib2.HTTPCookieProcessor(cookies)
 opener = urllib2.build_opener(handler)
