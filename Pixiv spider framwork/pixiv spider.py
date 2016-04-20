@@ -54,11 +54,11 @@ while(True):
 
 print 'Creating marked user log...'
 duplicate_check = []
+marked_user_log = open('Marked_users.txt','w')
 for everypage in pagenum:
 	openMarkpage = opener.open(markeduserurl+everypage)
 	markpage = openMarkpage.read()
-	users = re.findall('member\.php\?id=(\d+)', markpage)
-	marked_user_log = open('Marked_users.txt','w')
+	users = re.findall('member\.php\?id=(\d+)"', markpage)
 	for everyuser in users:
 		if everyuser not in duplicate_check:
 			marked_user_log.write(everyuser+',')
@@ -84,6 +84,10 @@ userslist.pop()
 
 ##Record all image id needs to download
 print 'Creating illust id log...'
+print 'This may take quite many hours...depands on how many pictures to download'
+print 'Like me, I got 14 pages of marked artists(654 artists), it took me over 24 hours...(Yea, its like 50,000 pictures)'
+print 'Also, a kindly remind, you should check you hard disk to see if theres enough room...(So 50,000 pictures is like 50GB)'
+print '.....'
 Marked_users_illust_id=open('illust_id.txt','w')
 for everyuser in userslist:
 	openuserpage = opener.open(userpageurl+everyuser)
@@ -158,7 +162,7 @@ for everyid in illustlist:
 	req = urllib2.Request(imageurl[0],None,data)
 	finalopen = opener.open(req)
 	filename = 'id_'+everyid+'.png'
-	f = open('.\illusts'+filename,'wb')
+	f = open(filename,'wb')
 	f.write(finalopen.read())
 	f.close()
 

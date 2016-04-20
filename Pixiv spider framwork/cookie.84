@@ -2,8 +2,8 @@
 # http://curl.haxx.se/rfc/cookie_spec.html
 # This is a generated file!  Do not edit.
 
-.pixiv.net	TRUE	/	FALSE	1463756820	PHPSESSID	3271470_9712364baee17bd17fc81855d5797d27
-.pixiv.net	TRUE	/	FALSE	1463756820	device_token	225f246c50ca950f8f375b0b444276d8
-.pixiv.net	TRUE	/	FALSE	1492700820	module_orders_mypage	%5B%7B%22name%22%3A%22everyone_new_illusts%22%2C%22visible%22%3Atrue%7D%2C%7B%22name%22%3A%22spotlight%22%2C%22visible%22%3Atrue%7D%2C%7B%22name%22%3A%22featured_tags%22%2C%22visible%22%3Atrue%7D%2C%7B%22name%22%3A%22contests%22%2C%22visible%22%3Atrue%7D%2C%7B%22name%22%3A%22following_new_illusts%22%2C%22visible%22%3Atrue%7D%2C%7B%22name%22%3A%22mypixiv_new_illusts%22%2C%22visible%22%3Atrue%7D%2C%7B%22name%22%3A%22booth_follow_items%22%2C%22visible%22%3Atrue%7D%5D
-.pixiv.net	TRUE	/	FALSE	1618931220	p_ab_id	1
-www.pixiv.net	FALSE	/	FALSE	1461251220	a_type	0
+.pixiv.net	TRUE	/	FALSE	1463769689	PHPSESSID	3271470_6ac87afa2ba110f6895cde4b8911fe5e
+.pixiv.net	TRUE	/	FALSE	1463769689	device_token	fcb07da64df99fbc211814c884dbc6ce
+.pixiv.net	TRUE	/	FALSE	1492713689	module_orders_mypage	%5B%7B%22name%22%3A%22everyone_new_illusts%22%2C%22visible%22%3Atrue%7D%2C%7B%22name%22%3A%22spotlight%22%2C%22visible%22%3Atrue%7D%2C%7B%22name%22%3A%22featured_tags%22%2C%22visible%22%3Atrue%7D%2C%7B%22name%22%3A%22contests%22%2C%22visible%22%3Atrue%7D%2C%7B%22name%22%3A%22following_new_illusts%22%2C%22visible%22%3Atrue%7D%2C%7B%22name%22%3A%22mypixiv_new_illusts%22%2C%22visible%22%3Atrue%7D%2C%7B%22name%22%3A%22booth_follow_items%22%2C%22visible%22%3Atrue%7D%5D
+.pixiv.net	TRUE	/	FALSE	1618944089	p_ab_id	8
+www.pixiv.net	FALSE	/	FALSE	1461264089	a_type	0
