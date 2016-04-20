@@ -26,4 +26,5 @@
 
            Things remain:
                       1. Personal use still
-                      3. super bad style now qq.
+                      2. super bad style now qq.
+                      3. I'm not sure how long will single login cookie last. The program needs to be able to refresh login cookie before it expire if downloading takes too much time.
