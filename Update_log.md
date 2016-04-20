@@ -29,3 +29,11 @@
                       2. super bad style now qq.
                       3. Can't download Manga style page.
                       4. I'm not sure how long will single login cookie last. The program needs to be able to refresh login cookie before it expire if downloading takes too much time.
+
+2016-04-20 Find a mysterious bug causing recorded users number reduced.
+           Added a Check_number.py to check the number of users and illust id.
+
+           Things to do:
+                      1. Fix the bug mentioned.
+                      2. Still, bad style QQ.
+                      3. Find a way to save time...
