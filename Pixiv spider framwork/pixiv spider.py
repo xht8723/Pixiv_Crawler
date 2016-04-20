@@ -11,7 +11,7 @@ markeduserurl = 'http://www.pixiv.net/bookmark.php?type=user'
 
 
 ##Creat cookie for login.
-postdata = urllib.urlencode({'mode':'login', 'pixiv_id':'******','pass':'********','skip':'1'}) ## Your pixiv id and password.
+postdata = urllib.urlencode({'mode':'login', 'pixiv_id':'wawa8723','pass':'Chenyiming504','skip':'1'}) ## Your pixiv id and password.
 cookies = cookielib.MozillaCookieJar('cookie.84')
 handler = urllib2.HTTPCookieProcessor(cookies)
 opener = urllib2.build_opener(handler)
@@ -68,7 +68,7 @@ Marked_users_illust_id = open('illust_id.txt','r')
 illusts=Marked_users_illust_id.read()
 illustlist=illusts.split(',')
 Marked_users_illust_id.close()
-illustlist.pop()     #To delete the last index which is a space ' '
+illustlist.pop()
 
 
 
@@ -110,7 +110,7 @@ for everyid in illustlist:
 	req = urllib2.Request(imageurl[0],None,data)
 	finalopen = opener.open(req)
 	filename = 'id_'+everyid+'.png'
-	f = open(filename,'w')
+	f = open(filename,'wb')
 	f.write(finalopen.read())
 	f.close()
 
