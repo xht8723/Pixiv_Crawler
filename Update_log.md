@@ -13,3 +13,10 @@
 
            Problems encountered:
                       The downloaded picture is broken for some reason. Suspecting encoding problem.
+
+2016-04-20 Scripted completed all problems fixed.
+
+           Things needs to improve:
+                      1. This one is only for my personal use.
+                      2. Only the first page work of your followed artist will be downloaded.
+                      3. Bad style :P
