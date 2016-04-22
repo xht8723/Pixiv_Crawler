@@ -11,10 +11,17 @@ markeduserurl = 'http://www.pixiv.net/bookmark.php?type=user&rest=show&p='
 userpageurl = 'http://www.pixiv.net/member_illust.php?id='
 
 
+print 'Welcome to pixiv crawler!------By Hantian Xiao(Hamame Yakoto)'
+print 'My email: gakki@luv84.cn'
+print 'Spam welcomed :P'
+
+INPUT_id = raw_input('Your pixiv id:')
+INPUT_pas = raw_input('Your password:')
+
 
 ##Creat cookie for login.
 print 'Creating cookie...'
-postdata = urllib.urlencode({'mode':'login', 'pixiv_id':'*******','pass':'*******','skip':'1'}) ## Your pixiv id and password.
+postdata = urllib.urlencode({'mode':'login', 'pixiv_id':INPUT_id,'pass':INPUT_pas,'skip':'1'}) ## Your pixiv id and password.
 cookies = cookielib.MozillaCookieJar('cookie.84')
 handler = urllib2.HTTPCookieProcessor(cookies)
 opener = urllib2.build_opener(handler)
