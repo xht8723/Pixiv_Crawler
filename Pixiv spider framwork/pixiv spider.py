@@ -21,7 +21,7 @@ INPUT_pas = raw_input('Your password:')
 
 ##Creat cookie for login.
 print 'Creating cookie...'
-postdata = urllib.urlencode({'mode':'login', 'pixiv_id':INPUT_id,'pass':INPUT_pas,'skip':'1'}) ## Your pixiv id and password.
+postdata = urllib.urlencode({'mode':'login', 'pixiv_id':INPUT_id,'pass':INPUT_pas,'skip':'1'}) 
 cookies = cookielib.MozillaCookieJar('cookie.84')
 handler = urllib2.HTTPCookieProcessor(cookies)
 opener = urllib2.build_opener(handler)
@@ -40,10 +40,14 @@ markpage = openMarkpage.read()
 pages = re.findall('bookmark\.php\?type=user&amp;rest=show&amp;p=(\d+)',markpage)
 pagenum = []
 
-for everypage in pages:
-	if everypage not in pagenum:
-		pagenum.append(everypage)
-Maxpagenum = pagenum[len(pagenum)-1]
+try:
+	for everypage in pages:
+		if everypage not in pagenum:
+			pagenum.append(everypage)
+	Maxpagenum = pagenum[len(pagenum)-1]
+except(IndexError):
+	print '\n\n\nWrong username or password!(or its a bug. contact me!)\n\n\n'
+	sys.exit(1)
 
 while(True):
 	pagelen = len(pagenum)
@@ -179,7 +183,7 @@ for everyid in illustlist:
 			
 			'Connection':'keep-alive',
 			
-			'Cookie':'p_ab_id='+p_ab_id+'; device_token='+device_token+'; PHPSESSID='+phpsessid+'; module_orders_mypage='+module_orders_mypage+'; __utmb=235335808.19.10.1461180741; __utmc=235335808; __utmz=235335808.1460079625.3.3.utmcsr=google|utmccn=(organic)|utmcmd=organic|utmctr=(not%20provided); __utmv=235335808.|2=login%20ever=yes=1^3=plan=premium=1^5=gender=male=1^6=user_id=3271470=1',
+			'Cookie':'p_ab_id='+p_ab_id+'; device_token='+device_token+'; PHPSESSID='+phpsessid+'; module_orders_mypage='+module_orders_mypage,
 			
 			'Host': hostnum[0],
 			
