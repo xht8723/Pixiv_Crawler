@@ -47,3 +47,11 @@
                       3. needs to add a cookie refresh function.
                       4. Add a program that can randomly select a few image.(well, I don't think I will ever browse these 20k images...so i just randomly select some everyday.)
                       5. Using Sina weibo, Tencent weibo and twitter's API to create a image sending program.
+
+2016-04-22 Added cookie header generator, everybody can use the script now! ;)
+
+           Things to do:
+                      1. Find a way to save time.
+                      2. GUI(maybe)
+                      3. Add a program that can randomly select a few image.(well, I don't think I will ever browse these 20k images...so i just randomly select some everyday.)
+                      4. Using Sina weibo, Tencent weibo and twitter's API to create a image sending program.
