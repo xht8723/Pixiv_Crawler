@@ -39,7 +39,7 @@
                       3. Find a way to save time...
 
 2016-04-22 Added duplicate check so that when you run it second time, it won't download those pictures that already exist.
-           Did some memery cleaning before download.
+           Did some memory cleaning before download.
 
            Things to do:
                       1. Find a way to save time.
