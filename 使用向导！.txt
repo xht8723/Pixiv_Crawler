@@ -1,5 +1,5 @@
 FOR windows：
-首先！如果你的电脑没有安装python，请按http://jingyan.baidu.com/article/c910274be14d64cd361d2dd8.html 的方法安装python
+首先！如果你的电脑没有安装python，请按http://jingyan.baidu.com/article/c910274be14d64cd361d2dd8.html 的方法安装python 2.7(不是3！)
 
 将pixiv crawler framework中的pixiv crawler.py和RUN.bat下载下来。
 将它们保存在你想要保存图片的地方，建议在哪新建个文件夹放进去。
